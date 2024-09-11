@@ -1,70 +1,98 @@
-# Getting Started with Create React App
+React Calculator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple calculator application built using React. This project implements basic arithmetic operations like addition, subtraction, multiplication, and division. The app provides a clean and user-friendly interface that mimics the functionality of a standard calculator.
 
-## Available Scripts
 
-In the project directory, you can run:
+Features
 
-### `npm start`
+- Perform basic arithmetic operations: Addition, Subtraction, Multiplication, and Division.
+- Clear the input and delete individual digits.
+- Supports floating-point numbers.
+- Responsive design for use on different screen sizes.
+- Intuitive and user-friendly UI.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Technologies Used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React: A JavaScript library for building user interfaces.
+- CSS: For styling the application.
+- useReducer: To manage the calculator’s state and logic.
 
-### `npm test`
+Getting Started
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Follow the instructions below to get a local copy of the project up and running.
 
-### `npm run build`
+Prerequisites
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Make sure you have the following installed:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js (v12 or higher)
+- npm (v6 or higher) or yarn
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Installation
 
-### `npm run eject`
+1. Clone the repository:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   bash
+   git clone https://github.com/Knightwing1941/react_calculator.git
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Navigate into the project directory:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   bash
+   cd react-calculator
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Install the dependencies:
 
-## Learn More
+   Using npm:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   bash
+   npm install
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   Or using yarn:
 
-### Code Splitting
+   bash
+   yarn install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. Start the development server:
 
-### Analyzing the Bundle Size
+   Using npm:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   bash
+   npm start
+   
+   Or using yarn:
 
-### Making a Progressive Web App
+   bash
+   yarn start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+   The app should now be running on `http://localhost:3000`.
 
-### Advanced Configuration
+Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Press the number buttons to input numbers.
+- Use the `+`, `-`, `*`, and `÷` buttons to perform operations.
+- Press the `=` button to evaluate the expression.
+- Use the `AC` button to clear all input.
+- Use the `DEL` button to delete the last digit entered.
 
-### Deployment
+Calculator Logic
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+The calculator's state is managed using the `useReducer` hook, which helps handle different actions like adding digits, choosing operations, evaluating the result, and clearing the input. The logic is split into actions like `ADD_DIGIT`, `CHOOSE_OPERATION`, `CLEAR`, `DELETE_DIGIT`, and `EVALUATE`.
 
-### `npm run build` fails to minify
+Example Code Snippet
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+js
+function reducer(state, { type, payload }) {
+  switch (type) {
+    case ACTIONS.ADD_DIGIT:
+      // Logic for adding digits
+      break;
+    case ACTIONS.CHOOSE_OPERATION:
+      // Logic for choosing an operation
+      break;
+    case ACTIONS.EVALUATE:
+      // Logic for evaluating the expression
+      break;
+    // More actions...
+  }
+}
+
