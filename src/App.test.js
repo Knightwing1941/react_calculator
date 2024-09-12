@@ -103,4 +103,80 @@ describe('Calculator', () => {
 
     expect(screen.getByTestId('current-operand')).toHaveTextContent("1");
   });
+
+  test('handles decimal numbers correctly', () => {
+    render(<App />);
+  
+    fireEvent.click(screen.getByTestId('one'));
+    fireEvent.click(screen.getByTestId('period'));
+    fireEvent.click(screen.getByTestId('five'));
+    fireEvent.click(screen.getByTestId('addition'));
+    fireEvent.click(screen.getByTestId('two'));
+    fireEvent.click(screen.getByTestId('period'));
+    fireEvent.click(screen.getByTestId('five'));
+    fireEvent.click(screen.getByText(/=/i));
+  
+    expect(screen.getByTestId('current-operand')).toHaveTextContent("4");
+  });
+
+  test('handles multiple operations correctly', () => {
+    // Keep in mind that the calculator does one operation at a time ie. once you click on an operation button or the equals button the operation is done
+    render(<App />);
+  
+    fireEvent.click(screen.getByTestId('five'));
+    fireEvent.click(screen.getByTestId('addition'));
+    fireEvent.click(screen.getByTestId('five'));
+    fireEvent.click(screen.getByTestId('multiplication'));
+    fireEvent.click(screen.getByTestId('two'));
+    fireEvent.click(screen.getByText(/=/i));
+  
+    expect(screen.getByTestId('current-operand')).toHaveTextContent("20");
+  });
+
+  test('handles division by zero', () => {
+    render(<App />);
+  
+    fireEvent.click(screen.getByTestId('eight'));
+    fireEvent.click(screen.getByTestId('division'));
+    fireEvent.click(screen.getByTestId('zero'));
+    fireEvent.click(screen.getByText(/=/i));
+  
+    expect(screen.getByTestId('current-operand')).toHaveTextContent("∞");
+  });
+
+  test('formats large numbers correctly', () => {
+    render(<App />);
+  
+    fireEvent.click(screen.getByTestId('one'));
+    fireEvent.click(screen.getByTestId('zero'));
+    fireEvent.click(screen.getByTestId('zero'));
+    fireEvent.click(screen.getByTestId('five'));
+    fireEvent.click(screen.getByTestId('nine'));
+    fireEvent.click(screen.getByTestId('zero'));
+    fireEvent.click(screen.getByTestId('zero'));
+    fireEvent.click(screen.getByTestId('three'));
+    fireEvent.click(screen.getByTestId('zero'));
+    fireEvent.click(screen.getByTestId('eight'));
+  
+    expect(screen.getByTestId('current-operand')).toHaveTextContent("1,005,900,308");
+  });
+
+  test('handles inputting zero correctly', () => {
+    render(<App />);
+  
+    fireEvent.click(screen.getByTestId('zero'));
+    fireEvent.click(screen.getByTestId('zero'));
+    fireEvent.click(screen.getByTestId('five'));
+  
+    expect(screen.getByTestId('current-operand')).toHaveTextContent("5");
+  });
+
+  test('handles operations without input gracefully', () => {
+    render(<App />);
+  
+    fireEvent.click(screen.getByTestId('addition'));
+    fireEvent.click(screen.getByText(/=/i));
+  
+    expect(screen.getByTestId('current-operand')).toHaveTextContent("");
+  });
 });
