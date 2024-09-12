@@ -157,30 +157,30 @@ function App() {
   return (
     <div className="calculator-grid">
       <div className="output">
-        <div className="previous-operand">
+        <div className="previous-operand" data-testid="previous-operand">
           {formatOperand(previousOperand)} {operation}
         </div>
-        <div className="current-operand">
+        <div className="current-operand" data-testid="current-operand">
           {formatOperand(currentOperand)}
         </div>
       </div>
       <button className="span-two" onClick={() => dispatch({ type: ACTIONS.CLEAR })}>AC</button>
       <button onClick={() => dispatch({ type: ACTIONS.DELETE_DIGIT })}>DEL</button>
-      <OperationButton operation="÷" dispatch={dispatch} />
-      <DigitButton digit="1" dispatch={dispatch} />
-      <DigitButton digit="2" dispatch={dispatch} />
-      <DigitButton digit="3" dispatch={dispatch} />
-      <OperationButton operation="*" dispatch={dispatch} />
-      <DigitButton digit="4" dispatch={dispatch} />
-      <DigitButton digit="5" dispatch={dispatch} />
-      <DigitButton digit="6" dispatch={dispatch} />
-      <OperationButton operation="+" dispatch={dispatch} />
-      <DigitButton digit="7" dispatch={dispatch} />
-      <DigitButton digit="8" dispatch={dispatch} />
-      <DigitButton digit="9" dispatch={dispatch} />
-      <OperationButton operation="-" dispatch={dispatch} />
-      <DigitButton digit="." dispatch={dispatch} />
-      <DigitButton digit="0" dispatch={dispatch} />
+      <OperationButton data-testid='division' operation="÷" dispatch={dispatch} />
+      <DigitButton data-testid='one' digit="1" dispatch={dispatch} />
+      <DigitButton data-testid='two' digit="2" dispatch={dispatch} />
+      <DigitButton data-testid='three' digit="3" dispatch={dispatch} />
+      <OperationButton data-testid='multiplication' operation="*" dispatch={dispatch} />
+      <DigitButton data-testid='four' digit="4" dispatch={dispatch} />
+      <DigitButton data-testid='five' digit="5" dispatch={dispatch} />
+      <DigitButton data-testid='six' digit="6" dispatch={dispatch} />
+      <OperationButton data-testid='addition' operation="+" dispatch={dispatch} />
+      <DigitButton data-testid='seven' digit="7" dispatch={dispatch} />
+      <DigitButton data-testid='eight' digit="8" dispatch={dispatch} />
+      <DigitButton data-testid='nine' digit="9" dispatch={dispatch} />
+      <OperationButton data-testid='subtraction' operation="-" dispatch={dispatch} />
+      <DigitButton data-testid='period' digit="." dispatch={dispatch} />
+      <DigitButton data-testid='zero' digit="0" dispatch={dispatch} />
       <button className="span-two" onClick={() => dispatch({ type: ACTIONS.EVALUATE })}>=</button>
     </div>
   );
